@@ -1,4 +1,4 @@
-package poker2.draw;
+package draw;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -7,6 +7,7 @@ import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.Ellipse2D;
+import java.util.Random;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -35,11 +36,20 @@ class Surface extends JPanel implements ActionListener {
 
     private void doDrawing(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-
-        g2d.setPaint(Color.blue);
         
         int w = getWidth();
         int h = getHeight();
+        
+        g2d.setPaint(Color.white);
+        // Random points for till :D
+        Random r = new Random();
+
+        for (int i = 0; i < 2000; i++) {
+            int x = Math.abs(r.nextInt()) % w;
+            int y = Math.abs(r.nextInt()) % h;
+            System.out.println(x + "  " + y);
+            g2d.drawLine(x, y, x, y);
+        }
         
         int tableWidth  = (int) (w *0.8);
         int tableHeight = (int) (h *0.8);
@@ -99,7 +109,6 @@ class Surface extends JPanel implements ActionListener {
         		(int) (w*0.78-(circleRadius/2)), (int) (h*0.22)-(circleRadius/2), circleRadius, circleRadius)); 
         g2d.fill( new Ellipse2D.Double( // bottom-right
         		(int) (w*0.78-(circleRadius/2)), (int) (h*0.78)-(circleRadius/2), circleRadius, circleRadius));
-        
     }
 
     @Override

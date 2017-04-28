@@ -1,4 +1,4 @@
-package poker2.draw;
+package draw;
 
 import java.awt.EventQueue;
 import java.awt.event.WindowAdapter;
@@ -14,8 +14,6 @@ public class Board extends JFrame {
     }
 
     private void initUI() {
-    	// Das ist ein Testkommentar für git
-    	// mal noch ein test
         final Surface surface = new Surface();
         add(surface);
 
@@ -27,8 +25,8 @@ public class Board extends JFrame {
             }
         });
 
-        setTitle("Points are everywhere");
-        setSize(1200, 800);
+        setTitle("The ultimate Pokergame");
+        setSize(1000, 700);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
